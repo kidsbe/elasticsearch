@@ -1,3 +1,5 @@
+cluster.name: es.test
+
 http.cors.allow-origin: "/.*/"
 http.cors.enabled: true
 http.cors.allow-credentials: true
