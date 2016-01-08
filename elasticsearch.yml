@@ -4,3 +4,4 @@ http.cors.allow-origin: "/.*/"
 http.cors.enabled: true
 http.cors.allow-credentials: true
 network.host: 0.0.0.0
+network.publish_host: "_non_loopback:ipv4_"
