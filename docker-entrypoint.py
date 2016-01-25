@@ -27,11 +27,12 @@ for ctr in svc.containers:
 
 cmd = [
     '/docker-entrypoint.sh',
+
     '--cluster.name=' + os.environ.get('ELASTICSEARCH_CLUSTER_NAME'),
+    
     '--discovery.zen.ping.multicast.enabled=false',
     '--discovery.zen.ping.timeout=3s',
     '--discovery.zen.minimum_master_nodes=1',
-    '--index.number_of_replicas=1',
 ]
 
 if nodes:
