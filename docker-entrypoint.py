@@ -9,7 +9,7 @@ import time
 import sys
 
 # fetch live cluster nodes
-
+print 'fetching live cluster nodes'
 svc = tutum.Utils.fetch_remote_service(os.environ.get('TUTUM_SERVICE_FQDN'))
 stk = tutum.Utils.fetch_by_resource_uri(svc.stack)
 nodes = []
@@ -40,9 +40,11 @@ if nodes:
 # wait for ethwe to appear
 
 slept = 0
+print 'waiting for ethwe interface to appear'
 while not 'ethwe' in netifaces.interfaces():
     time.sleep(1)
     slept += 1
+    print '  .'
     if slept >= 30:
         print 'interface ethwe did not appear timely'
         sys.exit(1)
