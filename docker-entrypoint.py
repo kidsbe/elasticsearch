@@ -17,7 +17,7 @@ for ctr in svc.containers:
     ctr = tutum.Utils.fetch_by_resource_uri(ctr)
     if ctr.state == 'Running':
         ctr_hostname = ctr.name + '.' + stk.name
-        ctr_url = 'http://%s/' % (ctr_hostname,)
+        ctr_url = 'http://%s:9200/' % (ctr_hostname,)
         try:
             r = requests.get(ctr_url)
         except:
@@ -25,11 +25,14 @@ for ctr in svc.containers:
         if r.status_code == 200:  # healthy
             nodes.append(ctr_hostname)
 
+print 'found live nodes: '
+print nodes
+
 cmd = [
     '/docker-entrypoint.sh',
 
     '--cluster.name=' + os.environ.get('ELASTICSEARCH_CLUSTER_NAME'),
-    
+
     '--discovery.zen.ping.multicast.enabled=false',
     '--discovery.zen.ping.timeout=3s',
     '--discovery.zen.minimum_master_nodes=1',
