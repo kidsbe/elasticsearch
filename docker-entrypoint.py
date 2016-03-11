@@ -33,6 +33,7 @@ cmd = [
 
     '--cluster.name=' + os.environ.get('ELASTICSEARCH_CLUSTER_NAME'),
 
+    '--path.repo=["/backups"]',
     '--discovery.zen.ping.multicast.enabled=false',
     '--discovery.zen.ping.timeout=3s',
     '--discovery.zen.minimum_master_nodes=1',
