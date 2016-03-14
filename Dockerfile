@@ -4,7 +4,8 @@ COPY elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
 RUN apt-get update && apt-get install -y \
                                          python-setuptools \
                                          build-essential \
-                                         python-dev
+                                         python-dev \
+                                         duplicity ncftp
 
 RUN easy_install pip
 RUN pip install \
