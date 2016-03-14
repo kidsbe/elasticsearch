@@ -3,4 +3,4 @@ http.cors.enabled: true
 http.cors.allow-credentials: true
 
 network.host: "_ethwe:ipv4_"
-path.repo: "/backups"
+#path.repo: "/backups"
